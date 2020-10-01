@@ -7,6 +7,7 @@ const Home = () => {
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
+      transition={{ delay: 1, duration: 1 }}
       className="home container"
     >
       <motion.h2 animate={{ fontSize: 50, color: "#202421" }}>
