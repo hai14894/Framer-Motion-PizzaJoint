@@ -3,16 +3,27 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 const containerVariants = {
   init: {
-    opacity: 0,
     x: "100vw",
   },
   visible: {
-    opacity: 1,
     x: 0,
     transition: {
       type: "spring",
       stiffness: 50,
       delay: 0.5,
+    },
+  },
+};
+
+const nextVariants = {
+  init: {
+    x: "-100vw",
+  },
+  visible: {
+    x: 0,
+    transition: {
+      type: "spring",
+      stiffness: 120,
     },
   },
 };
@@ -45,10 +56,10 @@ const Base = ({ addBase, pizza }) => {
 
       {pizza.base && (
         <motion.div
-          initial={{ x: "-100vw" }}
-          animate={{ x: 0 }}
-          className="next"
-          transition={{ type: "spring", stiffness: 120 }}
+          variants={nextVariants}
+          initial="init"
+          animate="visible"
+          className="next"  
         >
           <Link to="/toppings">
             <motion.button
