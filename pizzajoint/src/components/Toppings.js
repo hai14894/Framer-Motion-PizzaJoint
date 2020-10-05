@@ -1,6 +1,19 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+
+const containerVariants = {
+  init: {
+    x: "100vw",
+  },
+  visible: {
+    x: 0,
+    transition: {
+      type: "spring",
+      stiffness: 120,
+    },
+  },
+};
 const Toppings = ({ addTopping, pizza }) => {
   let toppings = [
     "mushrooms",
@@ -14,11 +27,7 @@ const Toppings = ({ addTopping, pizza }) => {
   return (
     <div className="toppings container">
       <h3>Step 2: Choose Toppings</h3>
-      <motion.ul
-        initial={{ x: "-100vw" }}
-        animate={{ x: 0 }}
-        transition={{ type: "spring", stiffness: 120 }}
-      >
+      <motion.ul variants={containerVariants} initial="init" animate="visible">
         {toppings.map((topping) => {
           let spanClass = pizza.toppings.includes(topping) ? "active" : "";
           return (
