@@ -28,7 +28,9 @@ const buttonVariants = {
 const Toppings = ({ addTopping, pizza }) => {
   let toppings = [
     "mushrooms",
-    "peppers",
+    "pepperoni",
+    "seafood",
+    "basil",
     "onions",
     "olives",
     "extra cheese",
