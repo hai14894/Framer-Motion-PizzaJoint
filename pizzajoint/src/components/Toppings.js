@@ -31,10 +31,8 @@ const Toppings = ({ addTopping, pizza }) => {
     "pepperoni",
     "seafood",
     "basil",
-    "onions",
     "olives",
     "extra cheese",
-    "tomatoes",
   ];
 
   return (
