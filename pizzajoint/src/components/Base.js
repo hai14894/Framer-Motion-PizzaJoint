@@ -40,7 +40,7 @@ const nextVariants = {
 };
 
 const Base = ({ addBase, pizza }) => {
-  const bases = ["Classic", "Thin & Crispy", "Thick Crust"];
+  const bases = ["Classic", "Thin & Crispy", "Thick Crust", "Square"];
 
   return (
     <motion.div
