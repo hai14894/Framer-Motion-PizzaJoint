@@ -2,7 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 
 const containerVariants = {
-  init: {
+  hidden: {
     x: "100vw",
   },
   visible: {
@@ -10,7 +10,17 @@ const containerVariants = {
     transition: {
       type: "spring",
       stiffness: 120,
+      when: "beforeChildren"
     },
+  },
+};
+
+const childVariants = {
+  hidden: {
+    opacity: 0,
+  },
+  visible: {
+    opacity: 1,
   },
 };
 
@@ -19,14 +29,16 @@ const Order = ({ pizza }) => {
     <motion.div
       className="container order"
       variants={containerVariants}
-      initial="init"
+      initial="hidden"
       animate="visible"
     >
       <h2>Thank you for your order :)</h2>
-      <p>You ordered a {pizza.base} pizza with:</p>
-      {pizza.toppings.map((topping) => (
-        <motion.div key={topping}>{topping}</motion.div>
-      ))}
+      <motion.p variants={childVariants}>You ordered a {pizza.base} pizza with:</motion.p>
+      <motion.div variants={childVariants}>
+        {pizza.toppings.map((topping) => (
+          <motion.div key={topping}>{topping}</motion.div>
+        ))}
+      </motion.div>
     </motion.div>
   );
 };
