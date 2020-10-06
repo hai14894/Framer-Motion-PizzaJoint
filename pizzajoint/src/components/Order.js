@@ -10,6 +10,8 @@ const containerVariants = {
     transition: {
       type: "spring",
       stiffness: 120,
+      mass: 0.4,
+      damping: 9,
       when: "beforeChildren"
     },
   },
