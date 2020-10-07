@@ -7,18 +7,36 @@ const buttonVariants = {
     scale: 1.1,
     textShadow: "0px 0px 8px rgb(125, 121, 121)",
     boxShadow: "0px 0px 8px rgb(125, 121, 121)",
-    transition:{
-      yoyo: Infinity
-    }
+    transition: {
+      yoyo: Infinity,
+    },
+  },
+};
+
+const containerVariants = {
+  hidden: {
+    opacity: 0,
+  },
+  visible: {
+    opacity: 1,
+    transition: {
+      delay: 1,
+      duration: 1,
+    },
+  },
+  exit: {
+    x: "-100vw",
+    transition: { ease: "easeInOut" },
   },
 };
 
 const Home = () => {
   return (
     <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ delay: 1, duration: 1 }}
+      variants={containerVariants}
+      initial="hidden"
+      animate="visible"
+      exit="exit"
       className="home container"
     >
       <motion.h2 animate={{ fontSize: 50, color: "#202421" }}>

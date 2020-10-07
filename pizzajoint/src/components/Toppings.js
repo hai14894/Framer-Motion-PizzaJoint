@@ -13,6 +13,10 @@ const containerVariants = {
       stiffness: 120,
     },
   },
+  exit: {
+    x: "-100vw",
+    transition: { ease: "easeInOut" },
+  },
 };
 
 const buttonVariants = {
@@ -38,7 +42,12 @@ const Toppings = ({ addTopping, pizza }) => {
   return (
     <div className="toppings container">
       <h3>Step 2: Choose Toppings</h3>
-      <motion.ul variants={containerVariants} initial="init" animate="visible">
+      <motion.ul
+        variants={containerVariants}
+        initial="init"
+        animate="visible"
+        exit="exit"
+      >
         {toppings.map((topping) => {
           let spanClass = pizza.toppings.includes(topping) ? "active" : "";
           return (
