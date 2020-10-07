@@ -40,13 +40,13 @@ const Toppings = ({ addTopping, pizza }) => {
   ];
 
   return (
-    <div className="toppings container">
+    <motion.div className="toppings container" variants={containerVariants}
+    initial="init"
+    animate="visible"
+    exit="exit">
       <h3>Step 2: Choose Toppings</h3>
       <motion.ul
-        variants={containerVariants}
-        initial="init"
-        animate="visible"
-        exit="exit"
+        
       >
         {toppings.map((topping) => {
           let spanClass = pizza.toppings.includes(topping) ? "active" : "";
@@ -67,7 +67,7 @@ const Toppings = ({ addTopping, pizza }) => {
           Order
         </motion.button>
       </Link>
-    </div>
+    </motion.div>
   );
 };
 
