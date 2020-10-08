@@ -1,5 +1,5 @@
 import React from "react";
-
+import {Link} from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 
 const backdrop = {
@@ -16,7 +16,14 @@ const Modal = ({ showModal, setShowModal }) => {
           variants={backdrop}
           initial="hidden"
           animate="visible"
-        ></motion.div>
+        >
+            <motion.div className="modal">
+                <p>Want to make another pizza?</p>
+                <Link to="/">
+                    <button>Start again</button>
+                </Link>
+            </motion.div>
+        </motion.div>
       )}
     </AnimatePresence>
   );
