@@ -18,6 +18,8 @@ const Header = () => {
         <div className="logo">
           <motion.svg
             variants={svgVariants}
+            drag
+            dragConstraints={{left:0, top:0, right:0, bottom:0}}
             initial="hidden"
             animate="visible"
             className="pizza-svg"
